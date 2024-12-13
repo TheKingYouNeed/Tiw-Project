@@ -1,6 +1,4 @@
-<p align="center">
-  <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExYm5kODF5YmV2bjl3OXViNHYwaG9uZW9sam5rcDJ3bTJsYms3bzV5ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1sursW4ByaTZ3SyHF3/giphy.gif" alt="GIF" width="800">
-</p>
+
 
 **Démonstration sur YouTube :** [Regarder la vidéo sur YouTube](https://www.youtube.com/watch?v=PgV-0t1oTQo)
 
