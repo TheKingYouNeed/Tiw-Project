@@ -13,7 +13,7 @@ Application web permettant la gestion de produits par catégories, développée 
 - Ajout de nouveaux produits
 - Gestion des catégories directement dans la base de données
 - Interface utilisateur en français
-- API REST sécurisée
+- API REST 
 
 ## Technologies Utilisées
 ### Backend
