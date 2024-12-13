@@ -1,0 +1,66 @@
+<div class="product-form-container">
+  <h2>Ajout d'un nouveau produit</h2>
+  
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="product-form">
+    <div class="form-group">
+      <label for="reference">Référence</label>
+      <input 
+        id="reference"
+        type="text"
+        formControlName="reference"
+        [class.is-invalid]="submitted && productForm.get('reference')?.errors"
+      >
+      <div *ngIf="submitted && productForm.get('reference')?.errors" class="error-message">
+        La référence est obligatoire
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea 
+        id="description"
+        formControlName="description"
+        [class.is-invalid]="submitted && productForm.get('description')?.errors"
+      ></textarea>
+      <div *ngIf="submitted && productForm.get('description')?.errors" class="error-message">
+        La description est obligatoire
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="price">Prix Unitaire</label>
+      <input 
+        id="price"
+        type="number"
+        formControlName="price"
+        [class.is-invalid]="submitted && productForm.get('price')?.errors"
+      >
+      <div *ngIf="submitted && productForm.get('price')?.errors" class="error-message">
+        <div *ngIf="productForm.get('price')?.errors?.['required']">Le prix est obligatoire</div>
+        <div *ngIf="productForm.get('price')?.errors?.['min']">Le prix doit être supérieur à 0</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="categoryId">Catégorie</label>
+      <select 
+        id="categoryId"
+        formControlName="categoryId"
+        [class.is-invalid]="submitted && productForm.get('categoryId')?.errors"
+      >
+        <option value="">Sélectionner une catégorie</option>
+        <option *ngFor="let category of categories" [value]="category.id">
+          {{category.name}}
+        </option>
+      </select>
+      <div *ngIf="submitted && productForm.get('categoryId')?.errors" class="error-message">
+        La catégorie est obligatoire
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="submit-button">Ajouter</button>
+      <button type="button" class="cancel-button" routerLink="/produits">Annuler</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,43 @@
+<div class="product-list-container">
+  <h2>Liste des produits</h2>
+  
+  <div class="filter-section">
+    <label>Catégorie : </label>
+    <select (change)="onCategoryChange($event)">
+      <option value="">Toutes les catégories</option>
+      <option *ngFor="let category of categories" [value]="category.id">
+        {{category.name}}
+      </option>
+    </select>
+  </div>
+
+  <div *ngIf="error" class="error-message">
+    {{ error }}
+  </div>
+
+  <div *ngIf="loading" class="loading">
+    Loading products...
+  </div>
+
+  <div class="table-container">
+    <table class="products-table">
+      <thead>
+        <tr>
+          <th>Référence</th>
+          <th>Description</th>
+          <th>Prix Unit.</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{product.reference}}</td>
+          <td>{{product.description}}</td>
+          <td>{{product.price | currency:'EUR'}}</td>
+        </tr>
+        <tr *ngIf="!loading && !error && products.length === 0">
+          <td colspan="3" class="no-data">Aucun produit trouvé</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
